@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Patient Login | Health Axix')
+@section('title', 'Patient Login | Health Axis')
 
 @push('styles')
 <style>
@@ -241,7 +241,7 @@
                                 
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <hr class="flex-grow-1 opacity-25">
-                                    <span class="text-muted px-3 small fw-medium text-uppercase">New to Health Axix?</span>
+                                    <span class="text-muted px-3 small fw-medium text-uppercase">New to Health Axis?</span>
                                     <hr class="flex-grow-1 opacity-25">
                                 </div>
                                 
