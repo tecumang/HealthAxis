@@ -1,0 +1,126 @@
+.carousel-item {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%; /* Half width overlay */
+    height: 100%;
+    background: rgba(255, 204, 0, 0.7); /* Yellow color with transparency */
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%); /* Diagonal cut */
+}
+
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.login {
+    background: #e1d3d3;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(29, 31, 31, 0.3);
+}
+.form-control {
+    background: transparent;
+    color: black;
+    border: 1px solid rgb(133, 147, 151);
+    box-shadow: none;
+}
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.btn-custom {
+    background: cyan;
+    color: black;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.btn-custom:hover {
+    background: white;
+    color: black;
+}
+
+.patient-registration-wrapper {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.patient-registration-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.patient-registration-container h2 {
+    color: white;
+}
+
+.patient-form-control {
+    border-radius: 8px;
+}
+
+.patient-btn {
+    background: #ff758c;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.patient-btn:hover {
+    background: #ff5e7d;
+}
+
+.feature-card {
+  background-color: #d7ecff; /* Light background color for all cards */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 11rem;
+  margin-top: 2rem;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card i {
+  color: #007bff; /* Icon color */
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover i {
+  color: #0056b3; /* Darker icon color on hover */
+}
+
+.feature-card h3 {
+  color: #343a40; /* Text color */
+}
