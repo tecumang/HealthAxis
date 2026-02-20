@@ -1,80 +1,295 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Login')
+@section('title', 'Admin Login | Health Axix')
+
+@push('styles')
+<style>
+    /* Modern Admin Login Specific CSS */
+    body {
+        background-color: #f1f5f9;
+    }
+
+    .login-wrapper {
+        min-height: calc(100vh - 100px);
+        display: flex;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    .login-card {
+        border-radius: 24px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background: #ffffff;
+    }
+
+    /* Left Side Admin Gradient Panel */
+    .admin-sidebar {
+        background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Decorative shapes in sidebar */
+    .admin-sidebar::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), transparent);
+        border-radius: 50%;
+    }
+    .admin-sidebar::after {
+        content: '';
+        position: absolute;
+        bottom: -80px;
+        right: -50px;
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, transparent, rgba(14, 165, 233, 0.1));
+        border-radius: 50%;
+    }
+
+    /* Custom Form Elements */
+    .form-label {
+        font-weight: 600;
+        color: #334155;
+        font-size: 0.9rem;
+    }
+
+    .custom-input {
+        border-radius: 0 12px 12px 0 !important;
+        padding: 0.8rem 1.2rem;
+        border: 1px solid #e2e8f0;
+        border-left: none;
+        background-color: #f8fafc;
+        transition: all 0.3s ease;
+    }
+
+    .input-group-text.custom-icon {
+        border-radius: 12px 0 0 12px !important;
+        border: 1px solid #e2e8f0;
+        border-right: none;
+        background-color: #f8fafc;
+        color: #64748b;
+        padding-left: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    /* Focus States */
+    .input-group:focus-within .custom-input,
+    .input-group:focus-within .custom-icon {
+        background-color: #ffffff;
+        border-color: #3b82f6;
+        border-top-color: #3b82f6;
+        border-bottom-color: #3b82f6;
+    }
+    
+    .input-group:focus-within .custom-icon {
+        border-left-color: #3b82f6;
+        color: #3b82f6;
+    }
+    
+    .input-group:focus-within .custom-input {
+        border-right-color: #3b82f6;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 0 0.25rem rgba(59, 130, 246, 0.1);
+    }
+
+    /* Toggle Password Button */
+    .toggle-password-btn {
+        border-radius: 0 12px 12px 0 !important;
+        border: 1px solid #e2e8f0;
+        border-left: none;
+        background-color: #f8fafc;
+        color: #64748b;
+    }
+    .input-group:focus-within .toggle-password-btn {
+        background-color: #ffffff;
+        border-color: #3b82f6;
+        border-right-color: #3b82f6;
+    }
+
+    /* Admin Button */
+    .btn-admin {
+        background: linear-gradient(45deg, #1e293b, #0f172a);
+        border: none;
+        color: white;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-admin:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+        color: white;
+        background: linear-gradient(45deg, #0f172a, #000000);
+    }
+
+    .floating-badge {
+        animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+</style>
+@endpush
 
 @section('content')
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-5">
-            <div class="card border-0 shadow-lg">
-                <div class="card-body p-5">
-                    <!-- Logo and Header -->
-                    <div class="text-center mb-4">
-                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                            <i class="fas fa-award text-primary" style="font-size: 28px;"></i>
-                        </div>
-                        <h3 class="fw-bold">Admin Login</h3>
-                        <p class="text-muted">Access your Superadmin dashboard</p>
-                    </div>
-                    <!-- Login Form -->
-                    <form method="POST" action="{{ route('admin-logins') }}" class="mt-4">
-                        @csrf
-                        
-                        <div class="mb-4">
-                            <label for="email" class="form-label fw-medium">Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-light">
-                                    <i class="fas fa-envelope text-muted"></i>
-                                </span>
-                                <input type="email" class="form-control bg-light" id="email" name="email" 
-                                       placeholder="Enter your email" value="{{ old('email') }}" required autofocus>
-                                       
-                            </div>
-                            @error('email')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        
-                        <div class="mb-4">
-                            <div class="input-group">
-                                <span class="input-group-text bg-light">
-                                    <i class="fas fa-lock text-muted"></i>
-                                </span>
-                                <input type="password" class="form-control bg-light" id="password" name="password" 
-                                       placeholder="Enter your password" required>
-                                <button class="btn btn-outline-secondary bg-light border-start-0" type="button" id="togglePassword">
-                                    <i class="fas fa-eye-slash text-muted"></i>
-                                </button>
-                            </div>
-                            @error('password')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        
-                        <div class="d-grid gap-2 mb-4">
-                            <button type="submit" class="btn btn-primary py-2 fw-medium">
-                                <i class="fas fa-sign-in-alt me-2"></i>Sign In
-                            </button>
-                        </div>
-
-
-                        
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <hr class="flex-grow-1">
-                            <span class="text-muted px-3">OR</span>
-                            <hr class="flex-grow-1">
-                        </div>
-                        
-                        <div class="text-center">
-                            <a href="/" class="btn btn-light me-2">
-                                <i class="fas fa-home me-1"></i>Home
+<div class="container login-wrapper">
+    <div class="row justify-content-center w-100">
+        <div class="col-xl-10 col-lg-11">
+            <div class="login-card" data-aos="zoom-in" data-aos-duration="800">
+                <div class="row g-0 h-100">
+                    
+                    <div class="col-lg-5 admin-sidebar text-white p-5 d-none d-lg-flex flex-column justify-content-between align-items-center text-center">
+                        <div class="w-100 text-start">
+                            <a href="/" class="text-white text-decoration-none fw-bold fs-4">
+                                <i class="fas fa-microscope me-2"></i> Health Axis
                             </a>
                         </div>
-                    </form>
+                        
+                        <div class="my-5 z-1">
+                            <div class="floating-badge bg-white bg-opacity-10 rounded-circle p-4 d-inline-block mb-4 border border-secondary">
+                                <i class="fas fa-user-shield fa-4x text-info"></i>
+                            </div>
+                            <h2 class="fw-bold mb-3 text-white">Superadmin Access</h2>
+                            <p class="fs-6 text-light opacity-75 px-3">Enter the central control panel to manage franchises, monitor global revenue, configure test parameters, and oversee system health.</p>
+                        </div>
+                        
+                        <div class="w-100 text-start z-1">
+                            <div class="d-flex align-items-center bg-dark bg-opacity-50 border border-secondary rounded-pill p-2 px-3">
+                                <i class="fas fa-lock text-info fs-5 me-2"></i>
+                                <span class="small fw-medium text-light">Restricted Area. Authorized Personnel Only.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 p-4 p-md-5">
+                        <div class="px-md-4 py-3">
+                            
+                            <div class="text-center mb-5 d-lg-none">
+                                <div class="bg-dark bg-opacity-10 text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                    <i class="fas fa-user-shield fs-2"></i>
+                                </div>
+                                <h3 class="fw-bold text-dark">Admin Login</h3>
+                                <p class="text-muted">Access your Superadmin dashboard</p>
+                            </div>
+
+                            <div class="mb-4 d-none d-lg-block">
+                                <h3 class="fw-bold text-dark mb-1">System Administration</h3>
+                                <p class="text-muted small">Please authenticate your credentials to proceed.</p>
+                            </div>
+                            
+                            @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show rounded-3 border-0 shadow-sm" role="alert">
+                                <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
+                            
+                            @if(session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show rounded-3 border-0 shadow-sm" role="alert">
+                                <i class="fas fa-exclamation-triangle me-2"></i>{{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
+                            
+                            <form method="POST" action="{{ route('admin-logins') }}" class="mt-4">
+                                @csrf
+                                
+                                <div class="mb-4">
+                                    <label for="email" class="form-label">Administrator Email</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text custom-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <input type="email" class="form-control custom-input fs-6" id="email" name="email" 
+                                               placeholder="admin@healthaxix.com" value="{{ old('email') }}" required autofocus>
+                                    </div>
+                                    @error('email')
+                                    <div class="text-danger small mt-2 fw-medium"><i class="fas fa-exclamation-circle me-1"></i>{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label for="password" class="form-label mb-0">Secure Password</label>
+                                    </div>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text custom-icon">
+                                            <i class="fas fa-key"></i>
+                                        </span>
+                                        <input type="password" class="form-control custom-input border-end-0 fs-6" id="password" name="password" 
+                                               placeholder="Enter admin password" required>
+                                        <button class="btn toggle-password-btn border-start-0" type="button" id="togglePasswordBtn">
+                                            <i class="fas fa-eye-slash" id="toggleIcon"></i>
+                                        </button>
+                                    </div>
+                                    @error('password')
+                                    <div class="text-danger small mt-2 fw-medium"><i class="fas fa-exclamation-circle me-1"></i>{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                
+                                <div class="d-grid gap-2 mb-4 mt-5">
+                                    <button type="submit" class="btn btn-admin btn-lg py-3 fw-bold shadow-sm">
+                                        Authenticate <i class="fas fa-sign-in-alt ms-2"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <hr class="flex-grow-1 opacity-25">
+                                    <span class="text-muted px-3 small fw-medium text-uppercase">Navigation</span>
+                                    <hr class="flex-grow-1 opacity-25">
+                                </div>
+                                
+                                <div class="text-center">
+                                    <a href="/" class="btn btn-light fw-medium rounded-pill px-5 text-muted border shadow-sm hover-bg-light">
+                                        <i class="fas fa-arrow-left me-2"></i>Return to Homepage
+                                    </a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            
+            <div class="text-center mt-4">
+                <p class="text-muted small mb-0">
+                    <i class="fas fa-server me-1"></i> Health Axis Central Server Node
+                </p>
+            </div>
+            
         </div>
     </div>
 </div>
-
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('togglePasswordBtn');
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.getElementById('toggleIcon');
+        
+        if (toggleBtn && passwordInput) {
+            toggleBtn.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleIcon.classList.remove('fa-eye-slash');
+                    toggleIcon.classList.add('fa-eye', 'text-primary');
+                } else {
+                    passwordInput.type = 'password';
+                    toggleIcon.classList.remove('fa-eye', 'text-primary');
+                    toggleIcon.classList.add('fa-eye-slash');
+                }
+            });
+        }
+    });
+</script>
+@endpush
