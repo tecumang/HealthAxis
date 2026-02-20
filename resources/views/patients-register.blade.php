@@ -85,7 +85,7 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-user-plus me-1"></i> Register
                             </button>
-                            <a href="{{ route('Patients-Login') }}" class="btn btn-outline-dark">
+                            <a href="{{ route('patient-login') }}" class="btn btn-outline-dark">
                                 <i class="fas fa-sign-in-alt me-1"></i> Already have an account? Login
                             </a>
                         </div>

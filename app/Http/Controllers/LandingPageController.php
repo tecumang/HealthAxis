@@ -65,7 +65,7 @@ class LandingPageController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('Patients-Login')->with('success', 'Registration successful! Please login.');
+        return redirect()->route('patient-login')->with('success', 'Registration successful! Please login.');
     }
 
     public function store(Request $request)
