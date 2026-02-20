@@ -5,12 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class TestReport extends Model
+
 {
-    protected $fillable = ['appointment_id', 'report'];
+     protected $fillable = ['appointment_id', 'report', 'doctore_referral'];
+
 
     public function appointment()
     {
         return $this->belongsTo(Appointment::class, 'appointment_id');
+    }
+
+      public function testResults()
+    {
+        return $this->hasMany(TestResult::class);
     }
 }
 

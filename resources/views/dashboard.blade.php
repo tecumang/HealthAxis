@@ -223,7 +223,7 @@
     <nav class="navbar navbar-expand-lg fixed-top glass-navbar py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="{{ asset('img/pathlab_logo.jpg') }}" class="img-fluid rounded me-2 shadow-sm" alt="Health Axis" loading="lazy" style="height:45px; width:45px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Health+Axis&background=0d6efd&color=fff'" />
+                <img src="{{ asset('img/Health.png') }}" class="img-fluid rounded me-2 shadow-sm" alt="Health Axis" loading="lazy" style="height:45px; width:45px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Health+Axis&background=0d6efd&color=fff'" />
                 <span class="fw-bold fs-4">Health <span class="text-gradient">Axis</span></span>
             </a>
             

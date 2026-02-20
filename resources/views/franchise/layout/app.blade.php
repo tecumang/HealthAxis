@@ -9,12 +9,15 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <!-- MDB icon -->
-    <link rel="icon" href="{{ asset('img/pathlab_logo.jpg') }}" type="image/x-icon" />
+      <link rel="icon" href="{{ asset('img/Health.ico') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
         integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" />
     <!--end::Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
         integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg=" crossorigin="anonymous" />
@@ -283,8 +286,8 @@
         <footer class="app-footer">
             <!--begin::Copyright-->
             <strong>
-                Copyright &copy; 2023-20233&nbsp;
-                <a href="#" class="text-decoration-none">Octopyder</a>.
+                Copyright &copy; 2026-20236&nbsp;
+                <a href="#" class="text-decoration-none">Apex Tech</a>.
             </strong>
             All rights reserved.
             <!--end::Copyright-->

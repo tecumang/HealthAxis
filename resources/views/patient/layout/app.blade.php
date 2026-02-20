@@ -9,7 +9,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <!-- MDB icon -->
-    <link rel="icon" href="{{ asset('img/pathlab_logo.jpg') }}" type="image/x-icon" />
+  <link rel="icon" href="{{ asset('img/Health.ico') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
@@ -230,8 +230,8 @@
         <footer class="app-footer">
             <!--begin::Copyright-->
             <strong>
-                Copyright &copy; 2023-20233&nbsp;
-                <a href="#" class="text-decoration-none">Octopyder</a>.
+                Copyright &copy; 2026-2036&nbsp;
+                <a href="#" class="text-decoration-none">Apex Tech</a>.
             </strong>
             All rights reserved.
             <!--end::Copyright-->

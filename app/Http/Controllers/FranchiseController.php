@@ -504,9 +504,9 @@ class FranchiseController extends Controller
         $report = Report::create([
             'appointment_id' => $request->appointment_id,
             'report_name' => $request->report_name,
-            'description' => $request->description,
-            'doctore_referral'=> $request->doctore_referral,
         ]);
+
+    
 
         foreach ($request->tests as $test) {
             TestResult::create([

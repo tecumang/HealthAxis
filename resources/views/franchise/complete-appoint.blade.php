@@ -162,7 +162,7 @@
         newRow.classList.add('row', 'g-3', 'mb-3', 'test-row');
         newRow.innerHTML = `
             <div class="col-md-3">
-                <input type="text" name="tests[${index}][test_name]" class="form-control" placeholder="Test Name" required>
+                <input type="text" name="tests[${index}][test_name]" class="form-control" placeholder="Parameter Name" required>
             </div>
             <div class="col-md-2">
                 <input type="text" name="tests[${index}][result]" class="form-control" placeholder="Result" required>
